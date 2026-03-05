@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513477920531",
+    "project_id": "musix-auth",
+    "storage_bucket": "musix-auth.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513477920531:android:4a58f6df241e5231653ce6",
+        "android_client_info": {
+          "package_name": "com.example.auth_bloc_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbbmwxoq1YohOaoH_59VqeVCGFusdHKlc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
