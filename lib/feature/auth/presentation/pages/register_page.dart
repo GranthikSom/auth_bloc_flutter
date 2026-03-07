@@ -1,18 +1,21 @@
-import 'package:auth_bloc_flutter/feature/auth/presentation/components/my_button.dart';
-import 'package:auth_bloc_flutter/feature/auth/presentation/components/my_text_field.dart';
-import 'package:auth_bloc_flutter/feature/auth/presentation/pages/register_page.dart';
+import 'package:auth_bloc_flutter/feature/auth/presentation/pages/signin_page.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatefulWidget {
-  const SigninPage({super.key});
+import 'package:auth_bloc_flutter/feature/auth/presentation/components/my_button.dart';
+import 'package:auth_bloc_flutter/feature/auth/presentation/components/my_text_field.dart';
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<SigninPage> createState() => _SigninPageState();
+  State<RegisterPage> createState() => _SigninPageState();
 }
 
-class _SigninPageState extends State<SigninPage> {
+class _SigninPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+  final confirmpasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,24 +33,37 @@ class _SigninPageState extends State<SigninPage> {
                 ),
                 const SizedBox(height: 50),
                 Text(
-                  "Welcome Back",
+                  "create your account",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontSize: 16,
                   ),
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 10),
 
                 MyTextField(
-                  controller: emailController,
-                  hintText: "email",
+                  controller: nameController,
+                  hintText: "name",
                   obscureText: false,
                 ),
-                const SizedBox(height: 25),
+                const SizedBox(height: 10),
 
                 MyTextField(
                   controller: passwordController,
+                  hintText: "email",
+                  obscureText: false,
+                ),
+                const SizedBox(height: 10),
+                MyTextField(
+                  controller: emailController,
                   hintText: "password",
+                  obscureText: false,
+                ),
+                const SizedBox(height: 10),
+
+                MyTextField(
+                  controller: passwordController,
+                  hintText: "confirm password",
                   obscureText: true,
                 ),
                 const SizedBox(height: 30),
@@ -56,9 +72,9 @@ class _SigninPageState extends State<SigninPage> {
                   child: GestureDetector(
                     onTap: () {},
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 125, right: 125),
+                      padding: const EdgeInsets.only(left: 115, right: 115),
                       child: Text(
-                        "LOGIN",
+                        "REGISTER",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 12,
@@ -72,13 +88,13 @@ class _SigninPageState extends State<SigninPage> {
                     Navigator.pop(context);
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RegisterPage()),
+                      MaterialPageRoute(builder: (context) => SigninPage()),
                     );
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(top: 50),
                     child: Text(
-                      "Become a member, Register now",
+                      "Already have an account, Sign in",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,

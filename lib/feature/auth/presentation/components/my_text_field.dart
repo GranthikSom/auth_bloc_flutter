@@ -17,7 +17,26 @@ class MyTextField extends StatelessWidget {
     return TextField(
       controller: controller,
       obscureText: obscureText,
-      decoration: InputDecoration(),
+      decoration: InputDecoration(
+        //unselected
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        //selected
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.inversePrimary,
+          ),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        hintText: hintText,
+        hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary),
+        fillColor: Theme.of(context).colorScheme.inversePrimary,
+        filled: true,
+      ),
     );
   }
 }
