@@ -1,3 +1,4 @@
+import 'package:auth_bloc_flutter/feature/auth/presentation/pages/signin_page.dart';
 import 'package:auth_bloc_flutter/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(body: Center(child: Text('Hello World'))),
+      home: SigninPage(),
     );
   }
 }
