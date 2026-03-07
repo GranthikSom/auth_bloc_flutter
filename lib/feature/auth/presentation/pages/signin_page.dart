@@ -1,7 +1,9 @@
 import 'package:auth_bloc_flutter/feature/auth/presentation/components/my_button.dart';
 import 'package:auth_bloc_flutter/feature/auth/presentation/components/my_text_field.dart';
+import 'package:auth_bloc_flutter/feature/auth/presentation/cubits/auth_cubits.dart';
 import 'package:auth_bloc_flutter/feature/auth/presentation/pages/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SigninPage extends StatefulWidget {
   const SigninPage({super.key});
@@ -13,6 +15,22 @@ class SigninPage extends StatefulWidget {
 class _SigninPageState extends State<SigninPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  void login() {
+    final String email = emailController.text;
+    final String pass = passwordController.text;
+
+    final authCubits = context.read<AuthCubits>();
+
+    if (email.isNotEmpty && pass.isNotEmpty) {
+      authCubits.login(email, pass);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please enter proper credentials")),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +72,7 @@ class _SigninPageState extends State<SigninPage> {
 
                 MyButton(
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: login,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 125, right: 125),
                       child: Text(
