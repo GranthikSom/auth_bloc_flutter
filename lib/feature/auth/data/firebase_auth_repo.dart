@@ -55,15 +55,21 @@ Future<AppUser> signUpWithEmailAndPassword({
 }
 
 @override
-Future<void> deleteAccount() {
-  // TODO: implement deleteAccount
-  throw UnimplementedError();
-}
+Future<void> deleteAccount() async {}
 
 @override
-Future<AppUser?> getCurrentUser() {
-  // TODO: implement getCurrentUser
-  throw UnimplementedError();
+Future<AppUser?> getCurrentUser() async {
+  final firebaseUser = firebaseAuth.currentUser;
+
+  if (firebaseUser != null) {
+    return AppUser(
+      id: firebaseUser.uid,
+      email: firebaseUser.email!,
+      name: 'User',
+    );
+  } else {
+    return null;
+  }
 }
 
 @override
@@ -73,9 +79,8 @@ Future<String> sendPasswordResetEmail({required String email}) {
 }
 
 @override
-Future<void> signOut() {
-  // TODO: implement signOut
-  throw UnimplementedError();
+Future<void> signOut() async {
+  await firebaseAuth.signOut();
 }
 
 @override
