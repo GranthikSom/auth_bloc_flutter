@@ -9,6 +9,7 @@ abstract class AuthRepo {
   Future<AppUser> signUpWithEmailAndPassword({
     required String email,
     required String password,
+    required String name,
   });
 
   Future<void> signOut();
