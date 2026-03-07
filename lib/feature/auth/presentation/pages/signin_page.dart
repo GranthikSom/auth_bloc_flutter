@@ -12,14 +12,27 @@ class _SigninPageState extends State<SigninPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Icon(
-              Icons.lock_open_rounded,
-              size: 80,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ],
+        child: Center(
+          child: Column(
+            children: [
+              Icon(
+                Icons.lock_open_rounded,
+                size: 80,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              const SizedBox(height: 50),
+              Text(
+                "Welcome Back",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                  fontSize: 16,
+                ),
+              ),
+              const SizedBox(height: 25),
+
+              TextField(),
+            ],
+          ),
         ),
       ),
     );
